@@ -1,0 +1,35 @@
+-- Haskell Playground 1.0
+{-# LANGUAGE FlexibleContexts #-}
+
+genState 4
+
+--algState (do
+--  i <- get
+--  put $ i + 1
+--  return $ genState 4) 6
+
+r<-runStateC (do
+  x <- con get
+  
+  var (Put x ())
+  ) 6
+  
+print r
+
+  
+con Get
+
+var (Put 5 ())
+var Get
+
+con get
+
+algState (return var) get
+
+var get
+
+runStateC (algState (do
+  Put 5 id
+  --  i <- Get id
+  --Put 4 id
+  ) 7) 5
