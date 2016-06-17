@@ -11,6 +11,9 @@ Executable FreeFusion
   buildable: True
   build-depends:
       base -any,
-      free -any,
-      mtl -any,
-      kan-extensions -any
+      free -any
+  other-modules:
+      Freer
+      Freer.Exec
+      Freer.Operators
+      Freer.Internal
